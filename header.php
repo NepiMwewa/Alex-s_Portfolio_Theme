@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title><?php bloginfo('name'); ?></title>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <script src="return.js"></script>
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <?php wp_head(); ?>
   </head>
 <body <?php body_class(); ?>>
@@ -41,7 +40,7 @@
         <div>
 
           <nav class="site-nav open-content">
-            <ul class="main-link"><li><a href="https://alexanderharmon.dev">Alexander Harmon</a></li></ul>
+            <ul class="main-link closeTab"><li><a href="https://alexanderharmon.dev">Alexander Harmon</a></li></ul>
               <?php
                 $args = array(
                   'theme_location' => 'primary'

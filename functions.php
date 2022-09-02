@@ -35,6 +35,13 @@ register_nav_menus(array(
 ));
 
 
+
+function tutsplus_enqueue_custom_js() {
+  wp_enqueue_script('return', get_stylesheet_directory_uri().'/scripts/return.js', 
+  array('jquery'), false, true);
+}
+
+
 //Actions
 add_action('wp_enqueue_scripts', 'nepi_photography_resources');
 add_action('wp_enqueue_scripts', 'nepi_menu_resources');
@@ -42,6 +49,8 @@ add_action('wp_enqueue_scripts', 'nepi_menu_resources');
 add_action( 'after_setup_theme', 'nd_dosth_theme_setup');
 
 add_action( 'after_setup_theme', 'mytheme_post_thumbnails' );
+
+add_action('wp_enqueue_scripts', 'tutsplus_enqueue_custom_js');
 
 
 
