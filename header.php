@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width">
     <title><?php bloginfo('name'); ?></title>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <script src="return.js"></script>
+</script>
     <?php wp_head(); ?>
   </head>
 <body <?php body_class(); ?>>
@@ -29,24 +31,37 @@
           </a>
       <?php endif; ?>
     </div>
-    <nav class="site-nav">
-     <ul class="main-link"><li><a href="https://alexanderharmon.dev">Alexander Harmon</a></li></ul>
-       <?php
-         $args = array(
-           'theme_location' => 'primary'
-          );
-        ?>
-        <?php wp_nav_menu($args); ?>
-        
 
-        <?php
-        if(is_active_sidebar('left-sidebar')): ?>
-          <div class="left-widget-sidebar">
-           <?php dynamic_sidebar('left-sidebar');?>
-          </div>
-        <?php endif;?>
+    <label class="menu-opener">
+      <input type="checkbox" id="checkId" class="toggler">
+      <div class="grouped fancy-button">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </div>
+      <div class="hamburger">
+        <div>
 
-      </nav>
+          <nav class="site-nav open-content">
+            <ul class="main-link"><li><a href="https://alexanderharmon.dev">Alexander Harmon</a></li></ul>
+              <?php
+                $args = array(
+                  'theme_location' => 'primary'
+                  );?>
+
+                <?php wp_nav_menu($args); ?>
+
+                <?php
+                if(is_active_sidebar('left-sidebar')): ?>
+                  <div class="left-widget-sidebar">
+                  <?php dynamic_sidebar('left-sidebar');?>
+                  </div>
+              <?php endif;?>
+
+          </nav>
+        </div>
+      </div>
+    </label> 
+
+    
 
     <h1><?php bloginfo('name'); ?></h1>
   </header>

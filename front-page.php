@@ -20,17 +20,6 @@
 
       endif;
     ?>
-  <!--
-  </div>
-  <div class="menu-opener">
-      <input type="checkbox" class="toggler">
-      <div class="hamburger">
-        <div>
-          <p class="open-content">content</p>
-        </div>
-      </div>
-    </div>
-    -->
 
 <?php
   get_footer();
