@@ -7,7 +7,7 @@ Version: 1.0
   --mainBackground: #2b2a2e;
   --mainColor: #adb5b8;
   --mainAltColor: #21d4d4;
-  --linkColorAlt: #3192af;
+  --linkColorAlt: #369FBF;
   --tagColor: #7fadb9;
 
   --svgColor: #23e6d9;
@@ -240,6 +240,12 @@ nav .skills li:hover > a{
   max-width: 600px;
   margin: 1rem 0px 0px 2rem;
 }
+.above-icons{
+  width: 100%;
+  justify-content: space-evenly!important;
+  align-content: space-evenly!important;
+  align-items:space-evenly !important;
+}
 
 /*Front Page Styles*/
 .front-page-content{
@@ -338,7 +344,7 @@ nav .skills li:hover > a{
 }
 .projects-card{
   
-  width: 400px;
+  width: 600px;
   margin: 4rem auto !important;
 }
 .projects-card h3{
@@ -346,6 +352,17 @@ nav .skills li:hover > a{
 }
 .projects-card p{
   font-size: 1.1rem;
+}
+.projects-fig{
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(#313035);
+}
+.projects-fig img{
+	width: 100% !important;
+	height: 100% !important;
+	padding: 0px;
+	margin: 0px;
 }
 .projects-card svg{
  width: 24px;
@@ -530,7 +547,11 @@ nav .skills li:hover > a{
 .footer-content p{
   font-size: 0.8rem;
 }
-
+.wpforms-confirmation-container-full{
+	background-color: var(--neuBackground);
+	color: var(--mainColor);
+	border-width: 0px;
+}
 
 /*
 Mobile Design
