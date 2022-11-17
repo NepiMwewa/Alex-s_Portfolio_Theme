@@ -3,9 +3,13 @@
   <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Alexander Harmon Portfolio, a Front-End and WordPress 
+    web developer with Software development roots. Fast Learner with skills in Web Development
+    , Software Development and Game development. Able to use the following languages:
+    JavaScript, C#, Java, PHP, Python, Lua, HTML5, CSS3. Three associates with a perfect 4.0 GPA
+    in Web Development, Cyber Security & Information Technology.">
     <title><?php bloginfo('name'); ?></title>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <?php wp_head(); ?>
   </head>
 <body <?php body_class(); ?>>
