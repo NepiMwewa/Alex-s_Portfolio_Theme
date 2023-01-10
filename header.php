@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>
-  <head>
+<html <?php language_attributes(); ?>>
+<head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Alexander Harmon Portfolio, a Front-End and WordPress 
@@ -10,10 +10,15 @@
     in Web Development, Cyber Security & Information Technology.">
     <title><?php bloginfo('name'); ?></title>
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <?php wp_head(); ?>
   </head>
+
 <body <?php body_class(); ?>>
 
+  <div id="tiles"></div>
+
+  <div class="bodyWrapper">
   <header class="header-content">
     <div class="logo">
       <?php if( has_custom_logo() ):  ?>
@@ -68,3 +73,4 @@
 
     <h1><?php bloginfo('name'); ?></h1>
   </header>
+ 

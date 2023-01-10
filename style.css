@@ -5,15 +5,22 @@ Version: 1.0
 */
 :root{
   --mainBackground: #2b2a2e;
-  --mainColor: #adb5b8;
+  --mainColor: #dbe0e2;
   --mainAltColor: #21d4d4;
   --linkColorAlt: #369FBF;
-  --tagColor: #7fadb9;
+  --tagColor: #93c9d6;
+
+  --currentOpacity: 1;
 
   --svgColor: #23e6d9;
 
+  /*
   --hrColor: #313035;
-  border-radius: 12px;
+  */
+  --hrColor: var(--borderColor);
+
+  --borderColor: rgba( 255, 255, 255, 0.18 );
+  --border-radius: 12px;
   --neuBackground: #2b2a2e;
   --neuBoxShadow: 6px 6px 13px #202023,
                   -6px -6px 13px #36353a;
@@ -22,17 +29,80 @@ Version: 1.0
 
   --scrollBackground: #36343a;
   --scrollHover: #423e46;
+
+  --g1: #21d4d4;
+  --g2: #ff8615;
 }
 
 body{
   background-color: var(--mainBackground);
+   
   background-image: url("assets/background-med.svg");
   background-repeat: repeat;
   background-size:auto;
+  
+  height: 100vh;
   color: var(--mainColor);
   margin: 0px;
-  margin-left: 12.1rem;
+  
   font-family:'Open Sans', sans-serif;
+}
+
+.tile:hover{
+  filter: brightness(200%);
+}
+body.toggled .tile:hover{
+  opacity: 0.3 !important;
+}
+body > .bodyWrapper{
+  margin-left: 12.1rem;
+}
+
+@keyframes background-pan{
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: -400% center;
+  }
+}
+
+#tiles{
+  animation: background-pan 60s linear infinite;
+  
+  background: linear-gradient(90deg, rgba(252,250,69,1) 0%, rgba(55,255,246,1) 25%, rgba(68,244,62,1) 50%, rgba(255,174,42,1) 75%, rgba(252,250,69,1) 100%);
+  background-size: 400%;
+  
+  opacity: 1;
+
+  z-index: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  margin: 0px;
+  
+  position: fixed;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+}
+
+body #tiles-container{
+  opacity: 1;
+}
+
+.tile{
+  opacity: 1;
+  cursor: pointer;
+  position: relative;
+}
+.tile:before{
+  background-color: var(--mainBackground);
+  
+  content: "";
+  inset: .5px;
+  position: absolute;
 }
 
 hr{
@@ -97,7 +167,7 @@ a{
   box-shadow:  var(--neuBoxShadow);
   overflow-x: visible;
   overflow-y: scroll;
-  z-index: 1;
+  z-index: 2;
 }
 
 nav .menu{
@@ -229,14 +299,19 @@ nav .skills li:hover > a{
   padding-right: 15%;
   padding-bottom: 20vh;
 }
+ 
 .above-fold h1{
+  
   font-size: 5rem;
   display: block;
   padding: 0px;
   margin: 0px;
   color: #eceff0;
+  /*
+    rgba(33,212,212,0.9)
+  */
 
-  text-shadow: 0 0 0.15em rgba(33,212,212,0.9);
+  text-shadow: 0 0 0.15em linear-gradient(90deg, rgba(252,250,69,1) 0%, rgba(55,255,246,1) 25%, rgba(68,244,62,1) 50%, rgba(255,174,42,1) 75%, rgba(252,250,69,1) 100%);
    
 }
 .above-fold h4{
@@ -254,6 +329,10 @@ nav .skills li:hover > a{
   align-items:space-evenly !important;
 }
 
+.above-fold .test-block{
+  padding: 3rem 3rem;
+}
+
 /*Front Page Styles*/
 .front-page-content{
   display: block;
@@ -269,6 +348,9 @@ nav .skills li:hover > a{
   
   margin: auto;
 }
+.front-page-content .wp-block-group{
+  z-index: 1;
+}
 
 .neu-block{
   margin: 5rem 2rem;
@@ -283,7 +365,7 @@ nav .skills li:hover > a{
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px );
   border-radius: 50px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid var(--borderColor);
   padding: 5em 1em;
   box-shadow:  var(--neuBoxShadow);
 }
@@ -420,13 +502,13 @@ nav .skills li:hover > a{
  .projects-card .not-av{
   text-decoration:line-through;
  }
- .awards h3{
+.awards{
+  z-index: 1;
+}
+.awards h3{
   font-size: 1.4rem;
 }
 .awards section{
-  border-style: solid;
-  border-width: 0px 2px 0px 2px;
-  border-color: var(--hrColor);
   padding: 0px 1rem;
 }
 .awards p{
@@ -555,6 +637,8 @@ nav .skills li:hover > a{
   border-style: solid;
   margin-top: 4rem;
   padding: 2rem;
+  z-index: 1;
+  position: relative;
 }
 .footer-content ul,
 .footer-content li{
@@ -568,6 +652,10 @@ nav .skills li:hover > a{
 	background-color: var(--neuBackground);
 	color: var(--mainColor);
 	border-width: 0px;
+}
+div.wpforms-container-full{
+  z-index: 1;
+  position: relative;
 }
 
 /*
@@ -612,6 +700,9 @@ Mobile Design
 @media screen and (max-width: 880px) {
 body{
   margin: 0px;
+}
+body > .bodyWrapper{
+  margin-left: 0px;
 }
 .above-fold h1{
   font-size: 3rem;
@@ -687,7 +778,7 @@ body{
   padding: 1.5vh 5%;
   height: 97vh;
   width: 90%;
-  z-index: 1;
+  z-index: 2;
 }
 nav a {
   text-align: center;
@@ -781,4 +872,12 @@ nav .skills li a{
   
     width: auto;
   }
+  .projects-card .fancy-button{
+    padding: 0.7rem 1rem;
+  }
+  .projects-card svg {
+    width: 24px;
+    height: 24px;
+    transform: translateY(0.4rem);
+}
 }
