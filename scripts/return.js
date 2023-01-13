@@ -6,6 +6,7 @@ let columns = 0,
 
 let toggled = false;
 const handleOnClick = index => {
+
   toggled = !toggled;
 
   document.body.classList.toggle("toggled");
@@ -51,8 +52,8 @@ const createTiles = quantity => {
 const createGrid = () => {
   wrapper.innerHTML = "";
 
-  columns = Math.floor(document.body.clientWidth / 50),
-  rows = Math.floor(document.body.clientHeight / 50);
+  columns = Math.floor(document.body.clientWidth / 128),
+  rows = Math.floor(document.body.clientHeight / 128);
 
   wrapper.style.setProperty("--columns", columns);
   wrapper.style.setProperty("--rows", rows);
@@ -60,5 +61,9 @@ const createGrid = () => {
   createTiles(columns * rows);
 }
 
-createGrid();
-window.onresize = () => createGrid();
+window.onload = (event) => {
+  console.log("page is fully loaded");
+  createGrid();
+  window.onresize = () => createGrid();
+};
+
