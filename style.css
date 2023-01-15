@@ -57,7 +57,9 @@ body.toggled .tile:hover{
 body > .bodyWrapper{
   margin-left: 12.1rem;
 }
-
+body > div.remove-opacity{
+  opacity: 0 !important;
+}
 @keyframes background-pan{
   from {
     background-position: 0% center;
@@ -341,8 +343,10 @@ nav .skills li:hover > a{
 }
 
 .front-page-content h2{
+  position: relative;
   font-size: 1.8rem;
   text-align: center;
+  z-index: 1;
 }
 .front-page-content .wp-block-column>p{
   

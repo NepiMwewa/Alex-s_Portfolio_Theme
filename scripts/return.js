@@ -62,7 +62,8 @@ const createGrid = () => {
 }
 
 window.onload = (event) => {
-  console.log("page is fully loaded");
+  document.getElementById("tiles").classList.remove("remove-opacity");
+
   createGrid();
   window.onresize = () => createGrid();
 };

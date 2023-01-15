@@ -16,7 +16,7 @@
 
 <body <?php body_class(); ?>>
 
-  <div id="tiles"></div>
+  <div id="tiles" class="remove-opacity"></div>
 
   <div class="bodyWrapper">
   <header class="header-content">
