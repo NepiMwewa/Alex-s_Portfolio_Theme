@@ -19,58 +19,42 @@
   <div id="tiles" class="remove-opacity"></div>
 
   <div class="bodyWrapper">
-  <header class="header-content">
-    <div class="logo">
-      <?php if( has_custom_logo() ):  ?>
-          <?php
-              // Get Custom Logo URL
-              $custom_logo_id = get_theme_mod( 'custom_logo' );
-              $custom_logo_data = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-              $custom_logo_url = $custom_logo_data[0];
-          ?>
+  <header id="header-id" class="header-content">
 
-          <a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-             title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
-             rel="home">
-
-              <img src="<?php echo esc_url( $custom_logo_url ); ?>"
-                   alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"/>
-
-          </a>
-      <?php endif; ?>
-    </div>
-
-    <label class="menu-opener">
-      <input type="checkbox" id="checkId" class="toggler">
-      <div class="grouped fancy-button">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </div>
-      <div class="hamburger">
-        <div>
-
-          <nav class="site-nav open-content">
-            <ul class="main-link closeTab"><li><a href="https://alexanderharmon.dev">Alexander Harmon</a></li></ul>
-              <?php
-                $args = array(
-                  'theme_location' => 'primary'
-                  );?>
-
-                <?php wp_nav_menu($args); ?>
-
-                <?php
-                if(is_active_sidebar('left-sidebar')): ?>
-                  <div class="left-widget-sidebar">
-                  <?php dynamic_sidebar('left-sidebar');?>
-                  </div>
-              <?php endif;?>
-
-          </nav>
-        </div>
-      </div>
-    </label> 
-
-    
-
+  <nav role="navigation" aria-label="Main menu" id="hamburger-menu">
+      <button aria-expanded="false" aria-label="Main menu toggle button"  aria-controls="main-menu" href="#menu" id="menu-toggle" class="menu-toggle" onclick="toggleMenu()">
+          <svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16">
+              </path>
+          </svg>
+      </button>
+    </nav>
+    <nav class="site-nav" id="menu-nav">
+      <ul class="main-link closeTab"><li><a href="https://alexanderharmon.dev">Alexander Harmon</a></li></ul>
+        <?php
+          wp_nav_menu( array(
+            'theme_location' 	=> 'primary',
+            'menu_id' 		 	  => 'main-menu',
+            'menu_class' 		  => 'menu',
+            'container' 	 	  => '',
+            'container_id'    => '',
+            'container_class'	=> '',
+            'depth'				    => 2,
+            'fallback_cb' 		=> false
+          ) );
+        ?>
+        <?php
+            if(is_active_sidebar('left-sidebar')): ?>
+              <div class="left-widget-sidebar">
+              <?php dynamic_sidebar('left-sidebar');?>
+              </div>
+        <?php endif;?>
+      </nav>
     <h1><?php bloginfo('name'); ?></h1>
   </header>
  
