@@ -4,12 +4,12 @@
 add_theme_support('widgets');
 
 //functions
-function nepi_photography_resources() {
+function alex_resources() {
   wp_enqueue_style('style', get_stylesheet_uri());
+  wp_enqueue_script( 'return', get_template_directory_uri() . '/scripts/return.js', array(), '1.0.0', true );
+  wp_enqueue_script( 'mouseFollower', get_template_directory_uri() . '/scripts/mouseFollower.js', array(), '1.0.0', true );
 }
-function nepi_menu_resources() {
-  wp_enqueue_style('menu_style', get_stylesheet_uri());
-}
+
 function index_page_excerpt_length(){
   return 35;
 }
@@ -35,22 +35,12 @@ register_nav_menus(array(
 ));
 
 
-
-function tutsplus_enqueue_custom_js() {
-  wp_enqueue_script('return', get_stylesheet_directory_uri().'/scripts/return.js', 
-  array('jquery'), false, true);
-}
-
-
 //Actions
-add_action('wp_enqueue_scripts', 'nepi_photography_resources');
-add_action('wp_enqueue_scripts', 'nepi_menu_resources');
+add_action('wp_enqueue_scripts', 'alex_resources', 15);
 
 add_action( 'after_setup_theme', 'nd_dosth_theme_setup');
 
 add_action( 'after_setup_theme', 'mytheme_post_thumbnails' );
-
-add_action('wp_enqueue_scripts', 'tutsplus_enqueue_custom_js');
 
 
 
